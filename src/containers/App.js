@@ -7,6 +7,12 @@ import Char from '../Char/Char'
 import Cockpit from '../components/cockpit/cockpit'
 
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+    console.log('[App.js] constructor');
+  }
+
   state = {
     persons: [
       { id: '1', name: 'Max', age: 25 },
@@ -16,6 +22,28 @@ class App extends Component {
     showPersons: false,
     userInput: '',
   }
+
+  static getDerivedStateFromProps(props, state) {
+    console.log('[App.js] getDerivedStateFromProps', props);
+    return state;
+  }
+
+  componentDidMount () {
+    console.log('[App.js] componentDidMount');
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log('[App.js] shouldComponentUpdate');
+    return true;
+  }
+
+  componentDidUpdate() {
+    console.log('[App.js] componentDidUpdate');
+  }
+
+  // componentWillMount () {
+  //   console.log('[App.js] componentWillMount')
+  // }
 
   switchNameHandler = (newName) => {
     this.setState({
@@ -70,6 +98,7 @@ class App extends Component {
   }
 
   render() {
+    console.log('[App.js] render')
     const charList = this.state.userInput.split('').map((ch, index) => {
       return <Char character={ch} key={index} clicked={() => this.deleteCharHandler(index)} />
     });
@@ -79,6 +108,7 @@ class App extends Component {
     return (
       <div className={classes.App}>
         <Cockpit
+          title={this.props.appTitle}
           showPersons={this.state.showPersons}
           persons={this.state.persons}
           clicked={this.togglePersonHandler} />
