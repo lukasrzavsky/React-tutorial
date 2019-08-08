@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import classes from './Person.css';
-import Aux from '../../../hoc/Auxiliary'
+import Aux from '../../../hoc/Auxiliary';
+import withClass from '../../../hoc/withClass';
 
 //Hook
 // class Person extends Component {
@@ -31,4 +32,4 @@ const Person = ({ name, age, children, changed, clicked, id }) => {
     )
 }
 
-export default Person;
+export default withClass(Person, classes.Person);
