@@ -2,6 +2,7 @@ import React, {Component, Fragment} from 'react';
 import classes from './Person.css';
 import Aux from '../../../hoc/Auxiliary';
 import withClass from '../../../hoc/withClass';
+import PropTypes from 'prop-types';
 
 //Hook
 // class Person extends Component {
@@ -31,5 +32,13 @@ const Person = ({ name, age, children, changed, clicked, id }) => {
         </Fragment>
     )
 }
+
+Person.propTypes = {
+    click: PropTypes.func,
+    name: PropTypes.string,
+    age: PropTypes.number,
+    changed: PropTypes.func
+
+};
 
 export default withClass(Person, classes.Person);
