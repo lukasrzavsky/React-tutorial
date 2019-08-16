@@ -5,7 +5,7 @@ import Person from '../components/Persons/Person/Person';
 import Validation from '../Validation/ValidationComponent';
 import Char from '../Char/Char';
 import Cockpit from '../components/cockpit/cockpit';
-import withClass from '../hoc/withClass';
+import withClass from '../hoc/WithClass';
 import Aux from '../hoc/Auxiliary';
 
 

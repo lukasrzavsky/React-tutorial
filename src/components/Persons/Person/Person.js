@@ -1,7 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import classes from './Person.css';
 import Aux from '../../../hoc/Auxiliary';
-import withClass from '../../../hoc/withClass';
+import withClass from '../../../hoc/WithClass';
 import PropTypes from 'prop-types';
 
 //Hook
