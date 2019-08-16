@@ -1,10 +1,13 @@
 // import React, { useState } from 'react';
 import React, { Component } from 'react';
 import classes from './App.css';
-import Person from '../components/Persons/Person/Person'
-import Validation from '../Validation/ValidationComponent'
-import Char from '../Char/Char'
-import Cockpit from '../components/cockpit/cockpit'
+import Person from '../components/Persons/Person/Person';
+import Validation from '../Validation/ValidationComponent';
+import Char from '../Char/Char';
+import Cockpit from '../components/cockpit/cockpit';
+import withClass from '../hoc/withClass';
+import Aux from '../hoc/Auxiliary';
+
 
 class App extends Component {
 
@@ -107,7 +110,7 @@ class App extends Component {
     const { persons } = this.state;
 
     return (
-      <div className={classes.App}>
+      <Aux>
         <button onClick={() => {this.setState({ showCockpit: false})}}>Remove cockpit</button>
         { this.state.showCockpit ? <Cockpit
           title={this.props.appTitle}
@@ -138,7 +141,7 @@ class App extends Component {
         <p>{this.state.userInput}</p>
         <Validation inputLength={this.state.userInput.length} />
         {charList}
-      </div>
+      </Aux>
     );
   }
 }
@@ -185,6 +188,6 @@ class App extends Component {
 //     // return React.createElement('div', {classname: App}, React.createElement('h1', null, 'I am a React App'));
 // }
 
-export default App;
+export default withClass(App, classes.App);
 
 
